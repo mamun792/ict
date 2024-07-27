@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Main Content Example</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   <!-- card row col 6 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Add Credit
+                    </div>
+                    <div class="card-body">
+                        <div class="container mt-5">
+                            <h2>Credit/Income Records</h2>
+                            <div class="d-flex justify-content-start mb-3">
+                              
+                                <div>
+                                    <a href="/html/credit.html" class="btn btn-primary">Credit</a> <!-- Replace with actual URL -->
+                                    <a href="/html/debit-page.html" class="btn btn-primary">Debit</a> <!-- Replace with actual URL -->
+                                    <button class="btn btn-success">Export Credit</button>
+                                </div>
+                            </div>
+                    
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col-md-3 mb-3">
+                                                <label for="purposeComments">Purpose/Comments</label>
+                                                <input type="text" class="form-control" id="purposeComments" placeholder="purpose, comments...">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="startDate">Start Date</label>
+                                                <input type="date" class="form-control" id="startDate">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="endDate">End Date</label>
+                                                <input type="date" class="form-control" id="endDate">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="selectOption">Select One</label>
+                                                <select class="form-control" id="selectOption">
+                                                    <option>Select One</option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
+                                            </div>
+                                            <!-- drop dwwn paginate value added -->
+                                            <div class="col-md-3 mb-3">
+                                                <label for="selectOption">Records per Page</label>
+                                                <select class="custom-select" id="selectOption">
+                                                    <option>20</option>
+                                                    <option>50</option>
+                                                    <option>100</option>
+                                                </select>
+                                            </div>
+                                       <!-- button referesh bette degan -->
+                                            <div class="col-md-3 mb-3">
+                                              
+                                                <button class="btn btn-primary">Refresh</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Invoice</th>
+                                                <th>Purpose</th>
+                                                <th>Credit In</th>
+                                                <th>Amount</th>
+                                                <th>Comment</th>
+                                                <th>Inserted</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="8" class="text-center">Showing 0 to 0 of total 0 entries</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

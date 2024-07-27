@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Debit/Expense table
+                    </div>
+                    <div class="card-body">
+                        <div class="container mt-5">
+                            <h2>Credit/Income Records</h2>
+                           
+                    
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col-md-3 mb-3">
+                                                <label for="purposeComments">Purpose/Comments</label>
+                                                <input type="text" class="form-control" id="purposeComments" placeholder="purpose, comments...">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="startDate">Start Date</label>
+                                                <input type="date" class="form-control" id="startDate">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="endDate">End Date</label>
+                                                <input type="date" class="form-control" id="endDate">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="purpose">Account Purpose</label>
+                                                <select class="form-control" id="purpose">
+                                                    <option>Account Purpose</option>
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
+                                            </div>
+                                           
+                                            <!-- drop dwwn paginate value added -->
+                                            <div class="col-md-3 mb-3">
+                                                <label for="selectOption">Records per Page</label>
+                                                <select class="custom-select" id="selectOption">
+                                                    <option>20</option>
+                                                    <option>50</option>
+                                                    <option>100</option>
+                                                </select>
+                                            </div>
+                                       <!-- button referesh bette degan -->
+                                            <div class="col-md-3 mb-3">
+                                              
+                                                <button class="btn btn-primary">Refresh</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table table-striped">
+                                       <!-- 	Date	Purpose	Debit From	Amount	Comment -->
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Purpose</th>
+                                                <th>Debit From</th>
+                                                <th>Amount</th>
+                                                <th>Comment</th>
+                                                <th>Inserted</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>2020-09-01</td>
+                                                <td>Salary</td>
+                                                <td>Bank</td>
+                                                <td>1000</td>
+                                                <td>Salary for the month of August</td>
+                                                <td>2020-09-01 12:00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>2020-09-01</td>
+                                                <td>Salary</td>
+                                                <td>Bank</td>
+                                                <td>1000</td>
+                                                <td>Salary for the month of August</td>
+                                                <td>2020-09-01 12:00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>2020-09-01</td>
+                                                <td>Salary</td>
+                                                <td>Bank</td>
+                                                <td>1000</td>
+                                                <td>Salary for the month of August</td>
+                                                <td>2020-09-01 12:00:00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
+
+</body>
+</html>
