@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Swap Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        .draggable-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 300px;
+        }
+        .draggable-list li {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Drag and Drop to Swap Positions</h2>
+
+<ul class="draggable-list">
+    <li id="item-1">Item 1</li>
+    <li id="item-2">Item 2</li>
+    <li id="item-3">Item 3</li>
+    <li id="item-4">Item 4</li>
+    <li id="item-5">Item 5</li>
+</ul>
+
+<script>
+    $(function() {
+        $(".draggable-list").sortable({
+            update: function(event, ui) {
+                var sortedIDs = $(this).sortable("toArray");
+                console.log("New order:", sortedIDs);
+            }
+        });
+        $(".draggable-list").disableSelection();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add styles for the list view */
+    .list-view .product-card {
+        flex: 0 0 100%; /* Make the card full width */
+        max-width: 100%;
+    }
+
+    .list-view .product-card .card {
+        display: flex;
+        flex-direction: row;
+        height: auto; /* Adjust the card height */
+    }
+
+    .list-view .product-card .card-img-top {
+        width: 150px; /* Adjust image size */
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .list-view .product-card .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <h5>Category</h5>
+            <p>Routers</p>
+            <h5>Brand</h5>
+            <ul class="list-unstyled">
+                <li>
+                    <input type="checkbox" class="brand-filter" value="Tenda"> Tenda
+                </li>
+                <li>
+                    <input type="checkbox" class="brand-filter" value="Xiaomi"> Xiaomi
+                </li>
+                <li>
+                    <input type="checkbox" class="brand-filter" value="TP-Link"> TP-Link
+                </li>
+                <li>
+                    <input type="checkbox" class="brand-filter" value="D-Link"> D-Link
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span>2702 items found in Routers</span>
+                <div>
+                    <select id="sort-price" class="form-select form-select-sm me-2" style="width: auto;">
+                        <option value="best-match">Sort By: Best Match</option>
+                        <option value="low-to-high">Price: Low to High</option>
+                        <option value="high-to-low">Price: High to Low</option>
+                    </select>
+                    <button id="grid-view" class="btn btn-outline-secondary">Grid View</button>
+                    <button id="list-view" class="btn btn-outline-secondary">List View</button>
+                </div>
+            </div>
+        
+            <div id="product-grid" class="row row-cols-1 row-cols-md-4 g-4">
+                <!-- Product Card 1 -->
+                <div class="col product-card" data-brand="Tenda" data-price="1499">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Tenda F3 300Mbps Router</h5>
+                            <p class="card-text"><strong>৳ 1,499</strong></p>
+                            <p class="card-text"><small class="text-muted">366 sold</small></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="col product-card" data-brand="Xiaomi" data-price="1339">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Mi Wifi Router 4C</h5>
+                            <p class="card-text"><strong>৳ 1,339</strong></p>
+                            <p class="card-text"><small class="text-muted">337 sold</small></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="col product-card" data-brand="TP-Link" data-price="2290">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">TP-Link Archer C54 AC1200</h5>
+                            <p class="card-text"><strong>৳ 2,290</strong></p>
+                            <p class="card-text"><small class="text-muted">6.0K sold</small></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="col product-card" data-brand="D-Link" data-price="1560">
+                    <div class="card h-100">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">D-Link DIR-650IN</h5>
+                            <p class="card-text"><strong>৳ 1,560</strong></p>
+                            <p class="card-text"><small class="text-muted">38 sold</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const brandFilters = document.querySelectorAll('.brand-filter');
+        const productCards = document.querySelectorAll('.product-card');
+        const sortPrice = document.getElementById('sort-price');
+        const gridViewBtn = document.getElementById('grid-view');
+        const listViewBtn = document.getElementById('list-view');
+        const productGrid = document.getElementById('product-grid');
+
+        function filterProducts() {
+            const selectedBrands = Array.from(brandFilters)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            productCards.forEach(card => {
+                const brand = card.getAttribute('data-brand');
+                card.style.display = selectedBrands.length === 0 || selectedBrands.includes(brand) ? '' : 'none';
+            });
+        }
+
+        function sortProducts() {
+            const sortBy = sortPrice.value;
+            const sortedCards = Array.from(productCards).sort((a, b) => {
+                const priceA = parseInt(a.getAttribute('data-price'));
+                const priceB = parseInt(b.getAttribute('data-price'));
+                if (sortBy === 'low-to-high') {
+                    return priceA - priceB;
+                } else if (sortBy === 'high-to-low') {
+                    return priceB - priceA;
+                }
+                return 0; // For "best-match"
+            });
+
+            sortedCards.forEach(card => {
+                productGrid.appendChild(card);
+            });
+        }
+
+        function toggleView(view) {
+            productGrid.classList.toggle('list-view', view === 'list');
+        }
+
+        brandFilters.forEach(checkbox => {
+            checkbox.addEventListener('change', filterProducts);
+        });
+
+        sortPrice.addEventListener('change', sortProducts);
+
+        gridViewBtn.addEventListener('click', () => toggleView('grid'));
+        listViewBtn.addEventListener('click', () => toggleView('list'));
+
+        // Initialize with grid view
+        toggleView('grid');
+    });
+</script>
+
+</body>
+</html>
